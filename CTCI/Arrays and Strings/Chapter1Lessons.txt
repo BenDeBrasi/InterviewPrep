@@ -1,0 +1,2 @@
+Use bit vectors!
+Become more familiar with StringBuilder. Build your own version.
