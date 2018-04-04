@@ -1,2 +1,6 @@
-Use bit vectors!
+Use bit vectors! Learn to implement in Python and Java.
 Become more familiar with StringBuilder. Build your own version.
+In Java, you must convert strings to char arrays to move values around. Costly so avoid if possible.
+Think about checking and ruling out inputs immediately. No reason to run algo if a simple check can determine the same results as the algo with an O(1) check of inputs. 
+Review hash table & arraylist syntax in Java.
+Make sure to articulate all the ways a problem can be solved and discuss tradeoffs when in an actual interview even if some ways seem silly or inferior. Can code the best one, but show you can think of multiple solutions.
