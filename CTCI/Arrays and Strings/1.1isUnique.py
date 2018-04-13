@@ -19,10 +19,20 @@ def isUnique2(st):
 		if st[i] == st[i-1]:
 			return False
 	return True
-	
+
+from bitarray import bitarray
+
 #Bitvector ascii method.
 def isUnique3(st):
-	if len(st) > 128:
-		return False
+    if len(st) > 128:
+        return False
+    bitarr = bitarray(128)
+    for c in st:
+        if bitarr[ord(c)] == True:
+            return False
+        else:
+            bitarr[ord(c)] = True
+    return True
 
-print(isUnique2(""))	
+
+print(isUnique3("hh"))	
