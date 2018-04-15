@@ -1,21 +1,26 @@
+from bitarray import bitarray
+
 def PalinPermVector(String):
 	
 	if len(String) == 0 or len(String) == 1:
 		return True
 		
 	"Replace this with bit vector later"
-	alphabet = [0] * 128
+	alphabet = bitarray(128)
 	oddFlag = 0
 	
 	for c in String:
-		alphabet[ord(c)]+=1
+                if alphabet[ord(c)] == 1:
+                    alphabet[ord(c)]=0
+                else:
+                    alphabet[ord(c)]=1
 	
-	for i in xrange(len(alphabet)):
+	for i in range(len(alphabet)):
 		
 		if alphabet[i] % 2 != 0:
 			if len(String) % 2 == 0:
 				return False
-			elif len(String) % 2 != 0 and OddFlag = 0:
+			elif len(String) % 2 != 0 and oddFlag == 0:
 				oddFlag = 1
 			else:
 				return False
@@ -46,4 +51,4 @@ def PalinPermSort(String):
 
 	return True
 			
-			
+print(PalinPermVector("heeh"))
