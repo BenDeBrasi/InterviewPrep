@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class CheckPerm{
 	public static boolean CheckPermArray(String str1, String str2){
 		if(str1.length() != str2.length())
@@ -9,17 +11,17 @@ public class CheckPerm{
 		//In Java must turn String to Char Array first. Strings immutable EL o EL.
 		char[] s = str1.toCharArray();
 		
-		for(Char c: s){
-			alphebet[c]++;
+		for(char c: s){
+			alphabet[c]++;
 		}
 		
 		
 		//Look for ways to avoid toCharArray operation cost.
-		for(int i; i < str2.length(); i++){
+		for(int i = 0; i < str2.length(); i++){
 			
 			alphabet[(int) str2.charAt(i)]--;
 			
-			if(alphabet[i] != 0)
+			if(alphabet[i] < 0)
 				return false;
 		}
 		
@@ -35,14 +37,16 @@ public class CheckPerm{
 		char[] s2 = str2.toCharArray();
 		
 		//Sort str1
-		Array.sort(str1);
+		Arrays.sort(s1);
 		//Sort str2
-		Array.sort(str2)
+		Arrays.sort(s2);
 		
-		return str1.equals(str2);
+		return Arrays.equals(s1,s2);
+	}
+
+	public static void main(String[] args){
+		System.out.println(CheckPermSort("helo","hello"));
 	}
 }
 
-//.toCharArray(), Array.sort(), .equals(). Remember to use these!
-
-//Hints 1, 84, 122, 131
+//.toCharArray(), Arrays.sort(), .equals(). Remember to use these!
