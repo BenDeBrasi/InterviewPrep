@@ -1,0 +1,18 @@
+Build my own version of StringBuilder.
+Think about checking and ruling out inputs immediately. No reason to run algo if a simple check can determine the same results as the algo with an O(1) check of inputs. 
+Review hash table & arraylist syntax in Java.
+Make sure to articulate all the ways a problem can be solved and discuss tradeoffs when in an actual interview even if some ways seem silly or inferior. Can code the best one, but show you can think of multiple solutions.
+
+Java- "import java.util.Arrays" to use array methods.
+Java- Don't have to import Math.
+Java- "import java.util.BitSet;" for bit array.
+Java- must convert strings to char arrays to move values around. Costly so avoid if possible. Alternatively, use StringBuilder or StringBuffer.
+Java- String vs StringBuilder vs StringBuffer vs char[]:
+	-String- Immutable. Safer and allows for things like associative memory (hashmaps), but incurs heavy cost for remaking, copying or editing. If altering is the string is a relevant factor and mutability is fine, use StringBuilder or StringBuffer.
+	-StringBuilder & StringBuffer- They are basically the same except StringBuffer is thread safe while StringBuilder is not. 
+	-StringBuilder vs char[]- StringBuilder offers more functionality and convenience, but char[] is more efficient.
+Java- Print 1d array with Arrays.toString(arr) and 2d array with Arrays.deepToString(arr)
+
+Python- "from bitarray import bitarray" to use bit array.
+Python- "from BitVector import BitVector" can also be used.
+Python- Have to "import math" 
