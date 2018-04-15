@@ -16,3 +16,4 @@ Java- Print 1d array with Arrays.toString(arr) and 2d array with Arrays.deepToSt
 Python- "from bitarray import bitarray" to use bit array.
 Python- "from BitVector import BitVector" can also be used. Will stick with bitarray for now since syntax more similar to lists.
 Python- Have to "import math" 
+Python - str(list) wont turn the list into a string. Use ''.join(list) instead. 
