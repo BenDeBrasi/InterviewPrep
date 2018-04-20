@@ -23,7 +23,7 @@ def PalinPermVector(String):
 			elif len(String) % 2 != 0 and oddFlag == 0:
 				oddFlag = 1
 			else:
-				return False
+                            return False
 	return True
 
 def PalinPermSort(String):
