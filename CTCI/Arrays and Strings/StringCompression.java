@@ -1,33 +1,50 @@
 public class StringCompression{
 	public static String Compress(String str){
-		
+		if(str.length() >= 0 && str.length() <= 2)
+			return str;
+
 		char[] arr = new char[str.length()];
 		char currLetter = ' ';
-		int currCount = 1;
+		int currCount = 0;
 		int arrSpot = 0;
-		
-		for(int i; i < str.length(); i++){
-			currLetter = str.getChar(i);
-			
-			while(currLetter == str.getChar(i) && i < str.length()){
+		int i = 0;
+
+		while (i < str.length()){
+			currLetter = str.charAt(i);
+			currCount = 0;
+
+			while(i < str.length() && currLetter == str.charAt(i)){
 				currCount++;
 				i++;
 			}
 			
-			if(arrCount + 1 >= arr.length()){
-				return str;
+			if(currCount > 2){
+				arr[arrSpot] = currLetter;
+				arr[++arrSpot] = (char)(currCount + '0');
 			}
 			else{
-				arr[arrSpot] = currLetter;
-				arr[++arrSpot] = currCount;
+				if(currCount == 2){
+					arr[arrSpot] = currLetter;
+					arr[++arrSpot] = currLetter;
+				}
+				else{
+					arr[arrSpot] = currLetter;
+				}
 			}
-			currCount = 1;
-			currLetter = ' ';
+			
+			arrSpot++;
 		}
 		
-		if(arr.length() <= str.length())
+		String s = new String(arr);
+		System.out.println(s);
+		
+		if(s.length() > str.length())
 			return str;
 		else
-			return new String(arr);
+			return s;
+	}
+
+	public static void main(String[] args){
+		System.out.println(Compress("helllllo"));
 	}
 }
