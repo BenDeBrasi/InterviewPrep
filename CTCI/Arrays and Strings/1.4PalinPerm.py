@@ -1,15 +1,15 @@
-from bitarray import bitarray
+from BitVector import BitVector
 
 def PalinPermVector(String):
     
     if len(String) == 0 or len(String) == 1:
         return True
     
-    "Replace this with bit vector later"
-    alphabet = bitarray(128)
+    alphabet = BitVector(intVal=0,size=128)
     oddFlag = 0
     
     for c in String:
+        print(ord(c))
         if alphabet[ord(c)] == 1:
             alphabet[ord(c)]=0
         else:
@@ -27,27 +27,28 @@ def PalinPermVector(String):
 
 def PalinPermSort(String):
     
-    if len(String) == 0 or len(String) == 1:
+    if len(String) >= 0 and len(String) <= 2:
         return True
     
     oddFlag = 0
-    currCount = 0
     s = sorted(String)
+    i = 0    
     
-    for i in xrange(1,len(s)):
+    while i < len(s):
         
-        while(s[i-1] == s[i] and i < len(s)):
+        currCount = 0
+        currChar = s[i]
+
+        while(i < len(s) and currChar == s[i]):
             currCount+=1
             i+=1
             
-            if currCount % 2 != 0 and len(String) % 2 == 0 or (len(String) %2 != 0 and oddFlag == 1):
-                return False
+        if (currCount % 2 != 0 and len(String) % 2 == 0) or (len(String) %2 != 0 and oddFlag == 1 and currCount % 2 != 0):
+            return False
 		
-            elif currCount % 2 != 0 and len(String) % 2 != 0 and oddFlag == 0:
-                oddFlag = 1
-                
-            currCount = 0
+        elif currCount % 2 != 0 and len(String) % 2 != 0 and oddFlag == 0:
+            oddFlag = 1
 
     return True
 			
-print(PalinPermVector("hh"))
+print(PalinPermSort("aabbcc"))

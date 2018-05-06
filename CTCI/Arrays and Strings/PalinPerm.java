@@ -1,60 +1,75 @@
+import java.util.Arrays;
+import java.util.BitSet;
+
 public class PalinPerm{
 	public static boolean PalinPermSort(String str){
-		if(str.length() == 0 || str.length() ==1)
+		if(str.length() >= 0 && str.length() <= 2)
 			return true;
 		
-		s = str.toCharArray();
-		s = Array.sort(s);
+		char[] s = str.toCharArray();
+		Arrays.sort(s);
 		
-		int currCount = 0;
-		boolean oddCount = 0;
-		
-		for(int i = 1; i < str.length(); i++){
+		int currMatches = 0;
+		boolean oddFlag = false;
+		int i = 0;
+		char currChar = 'a';
+
+		while(i < str.length()){
 			
-			while(s[i-1] == s[i] && i < str.length()){
-				currCount++;
+			currChar = s[i];
+			currMatches = 0;
+
+			while(i < str.length() && s[i] == currChar){
+				currMatches++;
 				i++;
 			}
 			
-			if(currCount % 2 == 0){}
-			
-			else{
-				if(str.length() % 2 != 0 && oddCount == 0){
-					oddCount = 1
-				}
-				else if(str.length() % 2 == 0 || (str.length() % 2 != 0 && oddCount == 1)){
+			if(str.length() % 2 == 0){
+				if(currMatches % 2 != 0)
 					return false;
-				}
 			}
-			currCount = 0;
+
+			else{
+				if(oddFlag == false && currMatches % 2 != 0)
+					oddFlag = true;
+				else if(oddFlag == true && currMatches % 2 != 0)
+					return false;
+			}
+			
+			currMatches = 0;
+
 		}
 		return true;
 	}
 	
 	public static boolean PalinPermVector(String str){
-		if(str.length() == 0 || str.length() == 1)
+		if(str.length() >= 0 && str.length() <= 2)
 			return true;
 		
-		int[] alphabet = new int[128];
-		
+		BitSet alphabet = new BitSet(128);
+		boolean oddFlag = false;
+
 		for(int i = 0; i < str.length(); i++){
-			alphabet[(int)str.charAt(i)]++;
+			alphabet.flip(Character.getNumericValue(str.charAt(i)));
 		}
 		
-		boolean oddFlag = 0;
-		
-		for(int i: alphabet){
-			if(i % 2 == 0){}
-			
-			else{
-				
-				if(str.length() % 2 == 0 || (str.length() % 2 != 0 && oddFlag ==1))
+		for(int i = 0; i < alphabet.length(); i++){	
+			if(alphabet.get(i) == false){
+				if(str.length() % 2 == 0){
 					return false;
-				else if((str.length() % 2 != 0 && oddFlag =0) )
-					oddFlag = 1;
+				}
+				else{
+					if(oddFlag == false)
+						oddFlag = true;
+					else
+						return false;
+				}
 			}
-			
 		}
 		return true;
+	}
+
+	public static void main(String[] args){
+		System.out.println(PalinPermVector("aabbcd"));
 	}
 }
