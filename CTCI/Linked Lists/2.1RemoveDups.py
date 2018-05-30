@@ -36,14 +36,10 @@ def RevDupNoBuf(LL):
         ele = ele.next
     return LL
 
-a = Node(1)
-b = Node(2)
-c = Node(3)
-d = Node(5)
-LL = LinkedList(a)
-LL.add(b)
-LL.add(c)
-LL.add(d)
+
+LL = LinkedList()
+for i in range(10):
+    LL.prepend(Node(i))
 
 tmp = LL.head
 while tmp != None:
@@ -52,7 +48,14 @@ while tmp != None:
 
 RevDupNoBuf(LL)
 
+print("-----")
+print("Testing iter")
+for i in LL:
+    print(i.data)
+
+
 print("----")
+print(LL.head)
 
 tmp = LL.head
 while tmp != None:

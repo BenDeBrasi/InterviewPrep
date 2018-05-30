@@ -1,0 +1,5 @@
+If you need a counter while doing recursion some general options are: wrapping the original function in a function with the counter argument, creating a separate class that can store multiple values to pass along the calls and that'll be on the heap as opposed to some int, using a global variable. 
+
+Remember to ALWAYS check for nulls when accessing linked list members.
+
+Python- Get memory address of object use id(obj). If wanted in hex use hex(id(obj))
