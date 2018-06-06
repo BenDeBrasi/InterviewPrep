@@ -3,7 +3,7 @@ def sort_stack(sta):
     tmp = stack()
 
     while not sta.isEmpty():
-        if not tmp.isEmpty9) and tmp.peek() <= sta.peek():
+        if not tmp.isEmpty() and tmp.peek() <= sta.peek():
             tmp.push(sta.pop())
         else:
             smaller = sta.pop()
@@ -15,3 +15,5 @@ def sort_stack(sta):
         sta.push(tmp.pop())
 
     return sta
+
+
