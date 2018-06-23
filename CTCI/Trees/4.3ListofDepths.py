@@ -1,4 +1,7 @@
 def ListofDepths(Tree, level):
+    if Tree == None:
+        return Tree
+
     qu = queue()
     qu.enqueue(Tree.root)
 
