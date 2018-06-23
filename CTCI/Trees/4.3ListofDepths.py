@@ -4,8 +4,10 @@ def ListofDepths(Tree, level):
 
     while level > 0:
         for i in range(len(qu)):
-            qu.enqueue(qu.peek().left)
-            qu.enqueue(qu.peek().right)
+            if qu.peek().left != None:
+                qu.enqueue(qu.peek().left)
+            if qu.peek().right != None:
+                qu.enqueue(qu.peek().right)
             qu.dequeue()
         level -=1
         
