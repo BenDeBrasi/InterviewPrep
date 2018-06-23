@@ -6,6 +6,7 @@ def ListofDepths(Tree, level):
     qu.enqueue(Tree.root)
 
     while level > 0:
+        #Test if leads to going to bottom of tree in single loop if use 'for i in qu'
         for i in range(len(qu)):
             if qu.peek().left != None:
                 qu.enqueue(qu.peek().left)
